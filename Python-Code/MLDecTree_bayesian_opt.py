@@ -32,7 +32,7 @@ from sklearn import preprocessing
 #delCol =["I9_STR_SAH","I9_SEQULAE", "I9_STR", "IX_CIRCULATORY"]
 #matching=list(Test.filter(regex=mask_pattrn))
 
-def MLdecTree (learnData, picpath, endpoint="I9_STR_EXH", delCol=["I9_STR_SAH","I9_SEQULAE", "I9_STR", "IX_CIRCULATORY"], corrValue=0.995, binary=True):
+def MLdecTree (learnData, picpath, endpoint="I9_STR_EXH", delCol=["I9_STR_SAH","I9_SEQULAE", "I9_STR", "IX_CIRCULATORY"], corrValue=0.995):
     #reads in processed Data from other function
     learnColumn=learnData.columns
     
@@ -113,7 +113,7 @@ def MLdecTree (learnData, picpath, endpoint="I9_STR_EXH", delCol=["I9_STR_SAH","
         n_iter = 100,   
         verbose = 0,
         refit = True,
-        random_state = 42
+        random_state =42
         )
     
     def status_print(optim_result):
@@ -132,7 +132,7 @@ def MLdecTree (learnData, picpath, endpoint="I9_STR_EXH", delCol=["I9_STR_SAH","
         
         # Save all model results
         clf_name = bayes_cv_tuner.estimator.__class__.__name__
-        all_models.to_csv(clf_name+"_cv_results.csv")
+        all_models.to_csv(picpath + "/" + clf_name +"_cv_results.csv")
 
     result = bayes_cv_tuner.fit(X_train, y_train, callback=status_print)
     
