@@ -22,7 +22,7 @@ from timeit import default_timer as timer
 #input directory of your Code
 codedir="/home/jsjukara/lisa/endpoint-liability/Python-Code"
 #Important table with all endpoint relations
-endInfoDir="/home/jsjukara/finngen_data/r6_data/FINNGEN_ENDPOINTS_DF6_public1.xlsx"
+endInfoDir="/home/jsjukara/FINNGEN_ENDPOINTS_DF6_public1.xlsx"
 #Data with all endpoints
 endpointPath="/home/jsjukara/finngen_data/r6_data/real_endpoints_int.csv"
 #Data with all the substance subscription info
