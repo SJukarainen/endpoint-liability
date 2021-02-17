@@ -76,7 +76,7 @@ import MLDecTree_bayesian_opt as xgbTree
 #discards coloumns with high correlation to endpoint
 corrValue=0.995
 #final dataprep and modell training
-accuracy, treeModell, corrDropList, X_test, y_test=xgbTree.MLdecTree(learnData, picPath, endpoint, delCol, corrValue)
+#accuracy, treeModell, corrDropList, X_test, y_test=xgbTree.MLdecTree(learnData, picPath, endpoint, delCol, corrValue)
 
 
 ##############################################################################
@@ -103,7 +103,7 @@ result = treeModell.fit(X_whole, y_whole)
 ############# Predicting all Data of Endpoint and drug data ##################
 ########################## and writing it to csv file ########################
 ##############################################################################
-#treeModell=joblib.load(picPath + "/EndpointModell.dat")
+treeModell=joblib.load(picPath + "/EndpointModell.dat")
 learnData1 = learnData[X_test.columns]
 pred = treeModell.predict_proba(learnData1) 
 strproba = pd.DataFrame(data=pred, columns=["col1", "col2"]).iloc[:, 1].to_numpy()
